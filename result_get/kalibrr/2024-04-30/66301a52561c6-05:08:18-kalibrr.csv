@@ -1,0 +1,56 @@
+nama_perusahaan,title,lokasi,tipe_pekerjaan,gaji,pendidikan,level,description,kualifikasi,posted_job,end_job,link
+"Nomura Research Institute Indonesia","DevOps Engineer","MidPlaza 2, 7F Jl. Jend. Sudirman Kav. 10-11 Jakarta 10220, Indonesia, Central Jakarta, DKI Jakarta, Indonesia","Full time",IDR,"Associate's Degree","Associate / Supervisor","<p>About your responsibilities for the Role:</p>
+
+<ul>
+	<li>Provision, configure and maintain infrastructure on cloud services</li>
+	<li>Design infrastructure architecture based on the client’s functional and non-functional requirements list.</li>
+	<li>Response to incidents, and problems, and plan for growth.</li>
+	<li>Design and implement CI/CD pipeline.</li>
+	<li>Work with the development team to quickly deliver software.</li>
+	<li>Design and implement automation for infrastructure and code management.</li>
+</ul>","<p><strong>Requirements:</strong></p>
+
+<p>What you need to have (Minimum Qualifications)</p>
+
+<ul>
+	<li>Excellent knowledge of one of these Cloud Service Providers: AWS, GCP, or Azure.</li>
+	<li>Excellent knowledge of Docker and Kubernetes.</li>
+	<li>Excellent knowledge of using Git.</li>
+	<li>Working knowledge of IaC platforms such as Terraform, Pulumi, and AWS CDK.</li>
+	<li>Working knowledge in one or more programming languages: Go, Python, TypeScript.</li>
+	<li>Working knowledge in Linux administration.</li>
+	<li>Working knowledge in the administration of relational databases such as PostgreSQL, MySQL, and MariaDB.</li>
+	<li>Working knowledge of CI/CD tools such as AWS Codepipeline, Gitlab CI, and Jenkins.</li>
+	<li>Working knowledge in Public Key Infrastructure systems.</li>
+	<li>Required language(s): English</li>
+</ul>
+
+<p> </p>
+
+<p><strong>Preferred:</strong></p>
+
+<p>What would make you stand out from the crowd (Preferred Qualifications)</p>
+
+<ul>
+	<li>Experience in monitoring and logging stacks such as GCP Stackdriver, AWS Cloudwatch, Grafana, and ELK.</li>
+	<li>Experience in designing and implementing computer networks and cloud security.</li>
+	<li>Able to work as part of a team and or alone.</li>
+	<li>Can efficiently organize and prioritize tasks.</li>
+	<li>Can confidently identify and solve technical problems unaided and in a timely fashion.</li>
+	<li>Knowledge of cybersecurity.</li>
+	<li>Able to design microservice architecture while considering the operation, security, and availability aspect.</li>
+</ul>",2024-01-03T09:21:35.124211+00:00,2025-01-03T09:18:28.894000+00:00,https://www.kalibrr.id/c/nomura-research-institute/jobs/90328/devops-engineer
+"Kompas Gramedia","Lecturer in Informatics - Universitas Multimedia Nusantara","Scientia Garden, Jl. Boulevard Gading Serpong. Tangerang","Full time",,Doctorate,"Associate / Supervisor","<ul>
+	<li>Implementing the Tridharma of Higher Education which includes the learning process, research and community service</li>
+	<li>Carry out various study program activities, both internal and external, in accordance with assignments from the Head of the Study Program</li>
+</ul>","<ul>
+	<li>Hold Doctoral Degree in Informatics/Computer Science/Information Technology from reputable university</li>
+	<li>Areas of expertise: Cyber Security; BioInformatics; Machine Learning; Game Development; Agile Software Development; DevSecOp</li>
+	<li>Candidate with vast research experience in the Informatics domain is preferable</li>
+	<li>At least 2 years of teaching or work experience in the related fields required for these positions</li>
+	<li>ICT (Information and Communication Technology) literate</li>
+	<li>Candidate who has JJA and/or publication is preferable</li>
+	<li>Good English Proficiency (at least 6.5 IELTS score with minimum of 6.0 in each category)</li>
+	<li>Lifelong learning and passionate to conduct “Tridharma Perguruan Tinggi” (Education, Research, and community outreach)</li>
+	<li>Exceptional communication skills (both verbal &amp; written), able to work independently, and collaborate in a team.</li>
+</ul>",2024-04-01T00:44:21.523723+00:00,2024-12-30T17:00:00+00:00,https://www.kalibrr.id/c/kompas-gramedia/jobs/117026/lecturer-in-informatics-universitas-multimedia-nusantara
