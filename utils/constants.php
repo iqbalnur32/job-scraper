@@ -11,5 +11,6 @@ define('KARIRCOM_URL_API', 'https://gateway2-beta.karir.com/');
 define('LOKERID_URL_API', 'https://www.loker.id/');
 define('KALIBRR_URL_API', 'https://www.kalibrr.id/');
 define('JOBSTRET_EXPRESS_URL', 'https://id.jobstreetexpress.com/');
+define('JOBSTRET_COID_URL', 'https://www.jobstreet.co.id/');
 
 ?>
