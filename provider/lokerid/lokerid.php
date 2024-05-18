@@ -20,6 +20,15 @@ class LokerID {
             "pragma: no-cache",
             "user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
         ];
+
+        $result = $this->requestCurl->getAll(
+            $this->url  . "cari-lowongan-kerja?q=$search&lokasi=$lokasi&category=$category&pendidikan=$pendidikan", 
+            $headers
+        );
+        print_r($result);
+        die;
+
+        
         $totalLoopPages = 100;
         $dataAllPages   = array();
         for($i = 1; $i <= $totalLoopPages; $i++) {
@@ -42,7 +51,6 @@ class LokerID {
             $dataAllPages = array_merge($dataAllPages, $result);
         }
 
-        // die;
         // save to excel to folder result_get/lokerid
 
         $dateNow       = date('Y-m-d');
