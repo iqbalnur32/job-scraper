@@ -43,6 +43,7 @@ class KarirCom {
         for($i = 0; $i < $totalPagination; $i++) {
             $payload['offset'] = $i * $this->limit;
             $result            = $this->requestCurl->getAll($this->url . "v2/search/opportunities", $payload);
+            print_r($result); die;
             $resultArrData     = array_merge($resultArrData, $result);
         }
 

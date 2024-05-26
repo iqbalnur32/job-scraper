@@ -2,9 +2,32 @@
 
 require __DIR__ . '/../../utils/constants.php';
 require __DIR__ . '/../../utils/service_helpers.php';
+require __DIR__ . '/../../config/config.php';
+
 class LokeridRequest {
 
+    public function __construct()
+    {
+        $this->db          = new Databases();   
+    }
+
     public static function getDetailLoker($url) {
+
+        $months = [
+            'Januari' => 'January',
+            'Februari' => 'February',
+            'Maret' => 'March',
+            'April' => 'April',
+            'Mei' => 'May',
+            'Juni' => 'June',
+            'Juli' => 'July',
+            'Agustus' => 'August',
+            'September' => 'September',
+            'Oktober' => 'October',
+            'November' => 'November',
+            'Desember' => 'December',
+        ];
+
 
         $result = curlGet2($url);
 
@@ -28,8 +51,15 @@ class LokeridRequest {
         $industriComp   = $xpathDetailLoker->query('//div[contains(@class, "m-b-5")]')->item(3)->nodeValue;
         $websiteComp    = $detailPerusahaan->item(0)->getElementsByTagName('a')->item(0)->getAttribute('href');
 
+        // Posted Date to timestamp
+        $posteDate = str_replace("Posted Date: ", "", $posteDate);
+        foreach ($months as $ind => $eng) {
+            $posteDate = str_replace($ind, $eng, $posteDate);
+        }
+        $timestampPostDate = strtotime($posteDate);
+
         return array(
-            'posteDate'      => $posteDate,
+            'posteDate'      => date("Y-m-d H:i:s", $timestampPostDate),
             'description'    => $description,
             'levelPekerjaan' => $levelPekerjaan,
             'pendidikan'     => $pendidikan,
@@ -71,7 +101,6 @@ class LokeridRequest {
                     $titleWork      = $h2Loop->nodeValue;
                     $namaPT         = $h2Loop->nextSibling->textContent;
                     $getDetailLoker = LokeridRequest::getDetailLoker($href);
-                    print_r($getDetailLoker); die;
 
                     $data = array(
                         'JobTitle'          => trim($titleWork),
@@ -83,7 +112,38 @@ class LokeridRequest {
                         'description'       => $getDetailLoker['description'],
                         'link'              => $href,
                         'post_date'         => $getDetailLoker['posteDate'],
+                        'company_name'      => $namaPT,
+                        'company_desc'      => $getDetailLoker['descCompany'],
+                        'company_web'       => $getDetailLoker['websiteComp'],
+                        'company_industri'  => $getDetailLoker['industriComp']
+                    ); 
+                    
+                    $insertJob = array(
+                        'title'              => trim($titleWork),
+                        'location'           => trim($lokasi),
+                        'basicpay'           => trim($gaji),
+                        'experience'         => $getDetailLoker['levelPekerjaan'],
+                        'education'          => $getDetailLoker['pendidikan'],
+                        'work_type'          => $getDetailLoker['tipePekerjaan'],
+                        'jobdesc'            => $getDetailLoker['description'],
+                        'work_category'      => $getDetailLoker['industriComp'],
+                        'industry'           => $getDetailLoker['industriComp'],
+                        'postdate'           => $getDetailLoker['posteDate'],
+                        'melamar_mudah'      => 0,
+                        'link_lamar'         => $href,
                     );
+                    $insertCompany = array(
+                        'fk_id_users'       => 1,
+                        'company_name'      => trim($namaPT),
+                        'profile'           => $getDetailLoker['descCompany'],
+                        'website'           => $getDetailLoker['websiteComp'],
+                        'industry'          => $getDetailLoker['industriComp'],
+                        'logo'              => $getDetailLoker['companyLogo'],
+                    );
+
+                    $this->db->insert('company', $insertCompany);
+                    $insertJob['id_company'] = $this->db->db->insert_id;
+                    $this->db->insert('jobs', $insertJob);
 
                     $dataLoker[] = $data;
 

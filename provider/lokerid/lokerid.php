@@ -1,10 +1,12 @@
 <?php 
 require_once __DIR__ . '/./request.php';
+require_once __DIR__ . '/../../config/config.php';
 
 class LokerID {
 
     public function __construct()
     {
+        $this->db          = new Databases();   
         $this->url         = LOKERID_URL_API;
         $this->requestCurl = new LokeridRequest();
     }
@@ -25,9 +27,6 @@ class LokerID {
             $this->url  . "cari-lowongan-kerja?q=$search&lokasi=$lokasi&category=$category&pendidikan=$pendidikan", 
             $headers
         );
-        print_r($result);
-        die;
-
         
         $totalLoopPages = 100;
         $dataAllPages   = array();
@@ -72,6 +71,6 @@ class LokerID {
 }
 
 $main = new LokerID();
-$main->getAll("it");
+$main->getAll("staff");
 
 ?>

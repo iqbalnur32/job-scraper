@@ -141,8 +141,13 @@ class KalibrrRequest {
         foreach($result->jobs as $val) {
             $id            = $val->id;
             $code          = $val->company->code;
-            $detailWork    = curlGet(KALIBRR_URL_API . "_next/data/ncok1ewk9uSH_ONhJQ_pf/id-ID/c/$code/jobs/" . $id . "/$code.json?code=$code&param=" . $id)->pageProps->job ?? null;
-            
+
+            echo KALIBRR_URL_API . "_next/data/kKfqNsDupBi-nR7EpRurt/c/$code/jobs/" . $id . "/$code.json?code=$code&param=" . $id;
+            die;
+
+            $detailWork    = curlGet(KALIBRR_URL_API . "_next/data/kKfqNsDupBi-nR7EpRurt/c/$code/jobs/" . $id . "/$code.json?code=$code&param=" . $id);
+            print_r($detailWork);
+            die;
             if(!$detailWork){
                 continue;
             }

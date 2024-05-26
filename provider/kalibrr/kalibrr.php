@@ -13,7 +13,7 @@ class Kalibrr {
     public function getPekerjaanByRekomendasi() 
     {
 
-        $countLimit = curlGet($this->url . "kjs/job_board/featured_jobs?limit=2&offset=1&country=Indonesia")->count;
+        $countLimit = curlGet($this->url . "kjs/job_board/featured_jobs?limit=2&offset=1&country=Indonesia");
         $result     = $this->requestCurl->getAllRekomendasiWork($this->url . "kjs/job_board/featured_jobs?limit=" . $countLimit . "&offset=1&country=Indonesia");
 
         $dateNow       = date('Y-m-d');
@@ -35,7 +35,7 @@ class Kalibrr {
 
     public function getPekerjaanAll()
     {
-        $totalLimit             = curlGet($this->url . "https://www.kalibrr.com/kjs/job_board/search?limit=1&offset=1&country=Indonesia")->pageProps->count;
+        $totalLimit             = curlGet($this->url . "kjs/job_board/search?limit=1&offset=1&country=Indonesia")->count;
         $totalPagination        = ceil($totalLimit / $this->limit);
         
         echo "\n Total Limit      => " . $totalLimit;
@@ -47,6 +47,8 @@ class Kalibrr {
             $offset = ($i - 1) * $this->limit;
             echo "\n Offset => " . $offset . "\n";
             $result = $this->requestCurl->getAll($this->url . "kjs/job_board/search?limit=" . $this->limit . "&offset=" . $offset . "&country=Indonesia");
+            print_r($result); 
+            die;
             $resultArr = array_merge($resultArr, $result);
         }
 
@@ -68,4 +70,4 @@ class Kalibrr {
 }
 
 $main = new Kalibrr();
-$main->getPekerjaanByRekomendasi();
+$main->getPekerjaanAll();
